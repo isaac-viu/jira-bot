@@ -2,37 +2,51 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Jira Chatbot</title>
+    <title>Jira Chatbot - Fullscreen</title>
 
     <!-- Dialogflow Messenger -->
-    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <link rel="stylesheet"
+      href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
     <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-  </head>
-  <body>
-    <h1>Jira Ticket Chatbot</h1>
-    <p>Ask the bot about your Jira tickets below:</p>
-
-    <df-messenger
-      project-id="viu-pmo-poc"
-      agent-id="d2fb0084-cb90-4de0-a8f1-caaed8f85603"
-      language-code="en"
-      max-query-length="-1">
-      <df-messenger-chat-bubble chat-title="Get Jira Ticket Status">
-      </df-messenger-chat-bubble>
-    </df-messenger>
 
     <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background: #f3f6fc;
+        font-family: 'Google Sans', Arial, sans-serif;
+      }
+
+      /* 令 chatbot 全屏鋪滿 */
       df-messenger {
-        z-index: 999;
         position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
         --df-messenger-font-color: #000;
         --df-messenger-font-family: Google Sans;
         --df-messenger-chat-background: #f3f6fc;
         --df-messenger-message-user-background: #d3e3fd;
         --df-messenger-message-bot-background: #fff;
-        bottom: 16px;
-        right: 16px;
+        --df-messenger-button-titlebar-color: #0b57d0;
+        --df-messenger-send-icon: #0b57d0;
+        border: none;
       }
     </style>
+  </head>
+
+  <body>
+    <df-messenger
+      project-id="viu-pmo-poc"
+      agent-id="d2fb0084-cb90-4de0-a8f1-caaed8f85603"
+      language-code="en"
+      max-query-length="-1">
+      <df-messenger-chat chat-title="Get Jira Ticket Status"></df-messenger-chat>
+    </df-messenger>
   </body>
 </html>
